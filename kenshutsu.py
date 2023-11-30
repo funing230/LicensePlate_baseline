@@ -26,7 +26,7 @@ class Kenshutsu(object):
 
     def __init__(self, is_cuda):
         device = '0' if is_cuda and torch.cuda.is_available() else 'cpu'
-        weights = 'D:/deep_project/lp/weights/yolov5s (1).pt'
+        weights = 'weights/yolov5s (1).pt'
         if not os.path.exists(weights):
             raise RuntimeError('Model parameters not found')
         self.device = select_device(device)

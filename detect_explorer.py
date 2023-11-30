@@ -31,6 +31,7 @@ class DExplorer:
         with torch.no_grad():
             y = self.net(image_tensor).cpu()
             points = self.select_box(y, (_w, _h))
+
             # for point, c in points:
             #     x1, x2, x3, x4, y1, y2, y3, y4 = point.reshape(-1)
             #     x1, x2, x3, x4 = x1 * _w, x2 * _w, x3 * _w, x4 * _w
@@ -41,9 +42,10 @@ class DExplorer:
             #         image = cv2.putText(image, str(i), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             #         i += 1
             # cv2.imshow('a', image)
-            #
-            # # print(points)
-            # cv2.waitKey()
+
+            # print(points)
+            cv2.waitKey()
+
             return points
 
     def select_box(self, predict, size, dims=208, stride=16):
@@ -136,7 +138,7 @@ if __name__ == '__main__':
     # import numpy
 
     e = DExplorer()
-    image = cv2.imread('test_image.jpg')
+    image = cv2.imread('test_image/test123.jpg')
     # image = numpy.zeros((208, 208, 3), dtype=numpy.uint8)
     labe = e(image)
     print(labe)

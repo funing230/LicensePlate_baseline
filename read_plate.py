@@ -44,7 +44,7 @@ class ReadPlate:
 
 if __name__ == '__main__':
     read_plate = ReadPlate()
-    image = cv2.imread('test_image.jpg')
+    image = cv2.imread('test_image/test123.jpg')
     # image = cv2.imread('2.png')
     boxes = read_plate(image)
     print(boxes)
